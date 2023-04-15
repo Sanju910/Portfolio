@@ -122,9 +122,6 @@ const slider = function () {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
-    if (slide === maxSlide - 1) {
-      curSlide = 0;
-    }
   };
 
   // Next slide
@@ -192,6 +189,12 @@ const slider = function () {
       const { slide } = e.target.dataset;
       goToSlide(slide);
       activateDot(slide);
+      
+      if (slide == maxSlide - 1) {
+        curSlide = -1;
+      } else {
+        curSlide = slide;
+      }
     }
   });
 };
