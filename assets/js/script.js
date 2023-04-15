@@ -122,7 +122,9 @@ const slider = function () {
     slides.forEach(
       (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
     );
-    curSlide = slide;
+    if (slide === maxSlide - 1) {
+      curSlide = 0;
+    }
   };
 
   // Next slide
